@@ -1,0 +1,7 @@
+{
+  "name": "components-lecto-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
