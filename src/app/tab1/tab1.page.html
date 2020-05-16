@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Agrupar
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,36 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <img  src="../../assets/images/unnamed.gif" height="100" width="100" class="img-fluid d-block mx-auto">
+        <cite>Puede que en esta parte se escuche un audio como: Selecciona los numeros del siguiente recuadro y pulsa el boton verde!</cite>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="container h-100">
+    <div class="row">
+      <div class="col-3" *ngFor="let answer of listAnswers">
+        <button type="button" class="btn btn-info" (click)="selectAnswer(answer)"
+          [ngClass]="{'match-target':answer.selected, 'no-match-target': !answer.selected}">{{answer.valor}}</button>
+      </div>
+    </div>
+  </div>
+
 </ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <small>Esta es tu respuesta...</small>
+    <div class="wrapper text-center" style="background-color: aqua;">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary" *ngFor="let item of answerUser">{{item.valor}}</button>
+      </div>
+    </div>
+    <br>
+    <ion-button expand="block" color="success" (click)="sendAnswer()"><img src="../../assets/images/send-icon.gif" height="40" width="50">  Enviar</ion-button>
+  </ion-toolbar>
+</ion-footer>
